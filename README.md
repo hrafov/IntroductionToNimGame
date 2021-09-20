@@ -1,5 +1,5 @@
 # TestForVacuumLab
-It was my test to VacuumLab - 
+It was my test to VacuumLab - 90 minute on all test and I failed because I tought that one value = 0 it is not a sum( 
 
 Zero sum subsequence
 In this task, your job is to write a program that can decide whether a sequence of numbers contains a continuous subsequence having a zero sum.
