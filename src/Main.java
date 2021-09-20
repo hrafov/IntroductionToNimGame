@@ -1,22 +1,38 @@
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
-import java.util.Scanner;
 public class Main {
+
+    static long[] method(String str) {
+        int i;
+        String[] splitArray = str.split(" ");
+        long[] array = new long[splitArray.length];
+        for(i=0;i < splitArray.length; i++) {
+            array[i] = Integer.parseInt(splitArray[i]);
+        }
+        return array;
+    }
+
     public static void main(String...args) throws IOException {
-        File inputFile = new File("src/testLittle.in");
-        Scanner in = new Scanner(inputFile);
-        int t = in.nextInt() ; //number of test cases
+        File inputFile = new File("src/test.in");
+        FileReader fr = new FileReader(inputFile);
+        BufferedReader br = new BufferedReader(fr);
+        int t = Integer.parseInt(br.readLine()); //number of test cases
         for (int testCase = 1; testCase <= t; testCase++) {
-            int n = in.nextInt();
-            long[] array = new long[n];
-            boolean isZeros = false; // any element = 0
+            int n = Integer.parseInt(br.readLine());
+            boolean isZerosInArray = false; // some element = 0
+            String allTestCaseNumbers = br.readLine();
+            long[] array = method(allTestCaseNumbers);
             for (int i = 0; i < n; i++) {
-                array[i] = in.nextInt();
-                if (array[i] == 0) isZeros = true;
+                if (array[i] == 0) {
+                    isZerosInArray = true;
+                    break;
+                }
             }
-            if (isZeros) {
+            if (isZerosInArray) {
                 System.out.println("yes");
-                break;
+                continue;
             }
 
             boolean isSumEQZero = false;
