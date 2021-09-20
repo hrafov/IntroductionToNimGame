@@ -12,9 +12,19 @@ public class Main {
             int n = in.nextInt();
             //System.out.println("n = " + n);
             int[] array = new int[n];
+
+            boolean isZeros = false; // any element = 0
             for (int i = 0; i < n; i++) {
                 array[i] = in.nextInt();
+                if (array[i] == 0) {
+                    isZeros = true;
+                    break;
+                }
                 //System.out.println("   i = " + i + " " + array[i]);
+            }
+            if (isZeros) {
+                System.out.println("yes");
+                break;
             }
 
             boolean isTrue = false;
