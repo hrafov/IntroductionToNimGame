@@ -30,6 +30,7 @@ Sample input
 -5 8 0 4
 
 Sample output
+
 yes
 
 no
