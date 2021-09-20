@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.util.Scanner;
 public class Main {
     public static void main(String...args) throws IOException {
-        File inputFile = new File("src/test.in");
+        File inputFile = new File("src/testLittle.in");
         Scanner in = new Scanner(inputFile);
 //        Scanner in = new Scanner(System.in);
         int t = in.nextInt() ; //number of test cases
