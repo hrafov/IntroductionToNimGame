@@ -31,8 +31,11 @@ Sample input
 
 Sample output
 yes
+
 no
+
 yes
+
 
 Explanation of the sample problem
 First two samples were explained above.
