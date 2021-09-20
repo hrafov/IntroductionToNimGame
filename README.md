@@ -16,11 +16,17 @@ For each test case find out whether the sequence of numbers in that test case co
 
 Sample input
 3
+
 4
+
 2 8 -9 1
+
 10
+
 2 1 3 4 -9 6 8 9 -100000 123132131
+
 4
+
 -5 8 0 4
 
 Sample output
