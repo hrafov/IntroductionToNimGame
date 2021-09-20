@@ -15,7 +15,7 @@ public class Main {
     }
 
     public static void main(String...args) throws IOException {
-        File inputFile = new File("src/test.in");
+        File inputFile = new File("src/testLittle.in");
         FileReader fr = new FileReader(inputFile);
         BufferedReader br = new BufferedReader(fr);
         int t = Integer.parseInt(br.readLine()); //number of test cases
