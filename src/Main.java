@@ -4,53 +4,49 @@ import java.io.FileReader;
 import java.io.IOException;
 public class Main {
 
-    static long[] method(String str) {
-        int i;
+    public static void main(String...args) throws IOException {
+        BufferedReader br = new BufferedReader(new FileReader(new File("src/testLittle.in")));
+        int numberOfTestCases = Integer.parseInt(br.readLine());
+
+        for (int testCase = 1; testCase <= numberOfTestCases; testCase++) {
+            int numberOfIntsInTestCase = Integer.parseInt(br.readLine());
+            long[] array = parseStringToArrayOfInts(br.readLine());
+
+            if(isZerosInArray(numberOfIntsInTestCase, array)) {
+                System.out.println("yes");
+                continue;
+            }
+
+            if (isSumEqualsZero(numberOfIntsInTestCase, array)) System.out.println("yes");
+            else System.out.println("no");
+        }
+    }
+
+    static boolean isZerosInArray(int numberOfInts, long[] array) { //TODO use predicate and stream arrays
+        for (int i = 0; i < numberOfInts; i++) {
+            if (array[i] == 0) return true;
+        }
+        return false;
+    }
+
+    static long[] parseStringToArrayOfInts(String str) {
         String[] splitArray = str.split(" ");
         long[] array = new long[splitArray.length];
-        for(i=0;i < splitArray.length; i++) {
+        for(int i=0; i < splitArray.length; i++) {
             array[i] = Integer.parseInt(splitArray[i]);
         }
         return array;
     }
 
-    public static void main(String...args) throws IOException {
-        File inputFile = new File("src/testLittle.in");
-        FileReader fr = new FileReader(inputFile);
-        BufferedReader br = new BufferedReader(fr);
-        int t = Integer.parseInt(br.readLine()); //number of test cases
-        for (int testCase = 1; testCase <= t; testCase++) {
-            int n = Integer.parseInt(br.readLine());
-            boolean isZerosInArray = false; // some element = 0
-            String allTestCaseNumbers = br.readLine();
-            long[] array = method(allTestCaseNumbers);
-            for (int i = 0; i < n; i++) {
-                if (array[i] == 0) {
-                    isZerosInArray = true;
-                    break;
-                }
+    static boolean isSumEqualsZero(int numberOfInts, long[] array) {
+        for (int firstElementNumber = 0; firstElementNumber < numberOfInts - 1; firstElementNumber++) {
+            long sum = array[firstElementNumber];
+            for (int fENinSequence = firstElementNumber + 1; fENinSequence < numberOfInts; fENinSequence++) {
+                sum += array[fENinSequence];
+                if (sum == 0) return true;
             }
-            if (isZerosInArray) {
-                System.out.println("yes");
-                continue;
-            }
-
-            boolean isSumEQZero = false;
-            for (int firstElementNumber = 0; firstElementNumber < n - 1; firstElementNumber++) {
-                long sum = array[firstElementNumber];
-                for (int fENinSequence = firstElementNumber + 1; fENinSequence < n; fENinSequence++) {
-                    sum += array[fENinSequence];
-                    if (sum == 0) {
-                        isSumEQZero = true;
-                        break;
-                    }
-                }
-                if (isSumEQZero) {
-                    System.out.println("yes");
-                    break;
-                }
-            }
-            if (!isSumEQZero) System.out.println("no");
         }
+        return false;
     }
+
 }
