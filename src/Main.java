@@ -12,7 +12,7 @@ public class Main {
             int numberOfIntsInTestCase = Integer.parseInt(br.readLine());
             long[] array = parseStringToArrayOfInts(br.readLine());
 
-            if(isZerosInArray(numberOfIntsInTestCase, array)) {
+            if(isZerosInArray(array)) {
                 System.out.println("yes");
                 continue;
             }
@@ -22,9 +22,9 @@ public class Main {
         }
     }
 
-    static boolean isZerosInArray(int numberOfInts, long[] array) { //TODO use predicate and stream arrays
-        for (int i = 0; i < numberOfInts; i++) {
-            if (array[i] == 0) return true;
+    static boolean isZerosInArray(long[] array) {
+        for (long i : array ) {
+            if (i == 0) return true;
         }
         return false;
     }
